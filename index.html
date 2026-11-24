@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Опрос ЛЭТУАЛЬ: расскажите, как Вам у нас</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+:root{--navy:#1b2e6e;--navy-d:#14234f;--rose:#f3dcd8;--cream:#fbf3ef;--card:#fbf3ef;--text:#1f2a5c;--muted:#5d668f;--accent:#a8434d;--heart:#c4687a;--line:#e3c9c6;--opt:#fff;--page:#f3dcd8;--btn-t:#fff;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:#1d2f66;--text:#fbf3ef;--muted:#b8c0e6;--accent:#f0a3ac;--heart:#e98aa0;--line:#3a4d8c;--opt:#26397a;--page:#14234f}}
+:root[data-theme="dark"]{--card:#1d2f66;--text:#fbf3ef;--muted:#b8c0e6;--accent:#f0a3ac;--heart:#e98aa0;--line:#3a4d8c;--opt:#26397a;--page:#14234f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--page);color:var(--text);font:500 17px/1.5 Montserrat,Arial,sans-serif;display:flex;justify-content:center;padding:24px 14px}
+.phone{width:100%;max-width:520px;background:var(--card);border-radius:34px;overflow:hidden;box-shadow:0 20px 60px rgba(20,35,79,.25);align-self:flex-start}
+.top{background:var(--navy);color:#fbf3ef;text-align:center;padding:18px 0 14px;font:400 34px/1 "Marck Script",cursive}
+.bar{height:6px;background:var(--line)}.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.in{padding:26px 24px 30px;min-height:480px}
+.meta{font-weight:700;font-size:15px;color:var(--muted)}
+.blk{font:400 32px/1.1 "Marck Script",cursive;color:var(--navy);margin:14px 0 8px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .blk{color:#fbf3ef}}
+h1{font:400 44px/1.05 "Marck Script",cursive;color:var(--navy);margin:6px 0 16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h1{color:#fbf3ef}}
+h2{font-size:21px;line-height:1.3;font-weight:700;margin:0 0 6px}
+p{margin:0 0 12px}.hint{color:var(--muted);font-size:15px;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}.chips span{border:1.5px solid var(--line);border-radius:99px;padding:5px 14px;font-size:15px;font-weight:600}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,textarea:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hearts{display:flex;gap:10px;margin:18px 0 6px}
+.h{background:none;border:0;padding:2px;width:52px;height:52px}
+.h svg{width:100%;height:100%}.h path{fill:none;stroke:var(--heart);stroke-width:1.6;stroke-linejoin:round;transition:fill .15s}
+.h.on path{fill:var(--heart)}
+.ends{display:flex;justify-content:space-between;font-size:15px;font-weight:600;gap:12px}
+.na{margin-top:18px;background:none;border:1.5px solid var(--line);border-radius:14px;padding:10px 16px;font-weight:600;font-size:16px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--opt);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:9px;font-size:16px;font-weight:500}
+.opt b{flex:none;width:22px;height:22px;border:2px solid var(--muted);border-radius:6px}
+.opt.r b{border-radius:50%}
+.opt.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--opt))}
+.opt.on b{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 4px var(--opt)}
+input[type=text],textarea{width:100%;font:inherit;font-size:16px;color:inherit;background:var(--opt);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px}
+textarea{min-height:140px;resize:vertical}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:16px 0 8px}
+.scale button{aspect-ratio:1.25;background:var(--opt);border:1.5px solid var(--line);border-radius:14px;font-size:20px;font-weight:700}
+.scale button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.leg{list-style:none;margin:6px 0 0;padding:0;font-size:15px;font-weight:600;color:var(--muted)}.leg li{padding:2px 0}.leg li.on{color:var(--accent);font-weight:700}
+.nav{display:flex;gap:12px;margin-top:26px}
+.nav button{border-radius:99px;padding:14px 26px;font-weight:700;font-size:17px;border:2px solid var(--navy)}
+.nav .back{background:none;color:var(--text);border-color:var(--line)}
+.nav .next,.go{background:var(--navy);color:var(--btn-t);flex:1}
+.go{border:0;border-radius:99px;padding:15px;font-weight:700;font-size:18px;width:100%}
+.note{background:var(--opt);border-radius:16px;padding:14px 16px;margin-top:18px;font-size:15px}
+.big{width:84px;height:84px;margin:6px 0 10px}.big path{fill:var(--heart);stroke:none}
+</style>
+</head>
+<body>
+<main class="phone">
+ <div class="top">Л’Этуаль</div>
+ <div class="bar"><i id="pg" style="width:0"></i></div>
+ <div class="in" id="app"></div>
+</main>
+<script>
+const HEART='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
+const low=k=>a=>typeof a[k]==="number"&&a[k]<5;
+const NONE="Ничего из перечисленного";
+const sub=(k,o)=>a=>low(k.replace("_p",""))(a)&&(a[k]||[]).includes(o);
+const Q=[
+{id:"overall",blk:"Общее впечатление",t:"Насколько Вы остались довольны интернет-магазином ЛЭТУАЛЬ в целом?",type:"hearts",lo:"совсем не доволен(на)",hi:"очень доволен(на)"},
+{id:"search",blk:"Поиск товара",t:"Насколько удобно Вам было искать нужный товар на сайте?",type:"hearts",lo:"неудобно",hi:"очень удобно",na:"Не пользовался(ась) поиском"},
+{id:"search_p",blk:"Поиск товара",t:"С чем возникли трудности при поиске товара?",hint:"Можно выбрать несколько вариантов.",type:"multi",when:low("search"),other:1,opts:["Неудобная навигация по категориям","Мало отзывов или они неинформативны","Не хватило описания товара (фото, текст)","Фильтры неудобны или их не хватило","Товар есть на сайте, но с подписью «Нет в наличии»","Строка поиска показывает не то, что нужно","Не нашёл(ла) нужный товар",NONE]},
+{id:"search_nf",blk:"Поиск товара",t:"Вы отметили, что не удалось найти нужный товар. Уточните, пожалуйста, что именно.",hint:"Можно выбрать несколько вариантов.",type:"multi",when:sub("search_p","Не нашёл(ла) нужный товар"),opts:["Не было нужного бренда","Не было нужной категории товара (например, адвент-календарь, дезодорант)","Не было нужного оттенка, цвета или варианта","Бренд представлен неполной линейкой (есть крем, но нет сыворотки)","Не было нужного объёма (например, мини-версии парфюма)",NONE]},
+{id:"search_nf2",blk:"Поиск товара",t:"Какой товар или бренд Вы хотели бы видеть в наличии?",hint:"Необязательно.",type:"text",when:sub("search_p","Не нашёл(ла) нужный товар")},
+{id:"order",blk:"Оформление заказа",t:"Насколько просто оформить заказ?",type:"hearts",lo:"сложно",hi:"очень просто",na:"Не оформлял(а) заказ"},
+{id:"order_p",blk:"Оформление заказа",t:"С чем возникли трудности при заказе?",hint:"Можно выбрать несколько вариантов.",type:"multi",when:low("order"),other:1,opts:["Проблемы с оплатой","Проблемы с промокодом или купоном","Проблемы с бонусами или картой лояльности","Часть товаров недоступна для заказа","Трудно оформить доставку","Пришлось оформлять заказ заново: его нельзя было изменить",NONE]},
+{id:"order_promo",blk:"Оформление заказа",t:"Уточните, пожалуйста, какие трудности возникли с промокодом.",hint:"Можно выбрать несколько вариантов.",type:"multi",when:sub("order_p","Проблемы с промокодом или купоном"),opts:["Непонятны условия действия промокода","Ввёл(а) промокод, но он не применился","Непонятно, как вводить промокод",NONE]},
+{id:"cab",blk:"Личный кабинет",t:"Насколько удобным Вам показалось пользование личным кабинетом?",type:"hearts",lo:"неудобно",hi:"очень удобно",na:"Не пользовался(ась) кабинетом"},
+{id:"cab_p",blk:"Личный кабинет",t:"С чем возникли трудности в личном кабинете?",hint:"Можно выбрать несколько вариантов.",type:"multi",when:low("cab"),other:1,opts:["Не получилось войти","Не видно карту лояльности","Неудобная навигация","Трудно найти историю заказов","Сложно изменить личные данные",NONE]},
+{id:"improve",blk:"Что улучшить",t:"Что на сайте стоит улучшить в первую очередь?",hint:"Выберите один вариант.",type:"single",other:1,opts:["Поиск и каталог","Оформление заказа","Личный кабинет","Доставка и возврат","Работа службы поддержки","Скорость работы сайта","Всё устроило"]},
+{id:"nps",blk:"Итог",t:"Насколько вероятно, что Вы порекомендуете ЛЭТУАЛЬ друзьям или коллегам?",type:"scale",lo:"точно нет",hi:"точно да"},
+{id:"open",blk:"Итог",t:"Какие рекомендации по совершенствованию сайта Вы могли бы нам подсказать в первую очередь?",hint:"Необязательно. Пара слов — тоже ответ.",type:"text"}
+];
+const A={};let i=-1;
+const app=document.getElementById("app"),pg=document.getElementById("pg");
+const vis=()=>Q.filter(q=>!q.when||q.when(A));
+const npsCap=n=>n===1?"точно нет":n<=6?"скорее нет":n<=8?"может быть":n===9?"скорее да":"точно да";
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const has=v=>Array.isArray(v)?v.length>0:v!==undefined&&v!=="";
+function intro(){
+ pg.style.width="0";
+ app.innerHTML=`<h1>Расскажите, как Вам у нас</h1>
+ <p>Спасибо за заказ! Мы хотим сделать интернет-магазин удобнее, и для этого нам важно узнать Ваше мнение о сайте.</p>
+ <div class="chips"><span>около 2 минут</span><span>7 вопросов</span><span>анонимно</span></div>
+ <button class="go" data-start>Начать опрос</button>`;
+}
+function body(q){
+ const v=A[q.id];
+ if(q.type==="hearts")return `<div class="hearts" role="radiogroup" aria-label="Оценка от 1 до 5">${[1,2,3,4,5].map(n=>`<button class="h${v>=n?" on":""}" data-v="${n}" role="radio" aria-checked="${v===n}" aria-label="${n} из 5">${HEART}</button>`).join("")}</div>
+ <div class="ends"><span>${q.lo}</span><span>${q.hi}</span></div>${q.na?`<button class="na opt${v==="na"?" on":""}" data-na style="width:auto"><b></b>${q.na}</button>`:""}`;
+ if(q.type==="scale")return `<div class="scale">${[1,2,3,4,5,6,7,8,9,10].map(n=>`<button class="${v===n?"on":""}" data-v="${n}">${n}</button>`).join("")}</div>
+ <ul class="leg">${[[1,1,"1","точно нет"],[2,6,"2–6","скорее нет"],[7,8,"7–8","может быть"],[9,9,"9","скорее да"],[10,10,"10","точно да"]].map(([a,b,l,c])=>`<li${v>=a&&v<=b?' class="on"':""}>${l} — ${c}</li>`).join("")}</ul>`;
+ if(q.type==="text")return `<textarea id="tx" maxlength="500" aria-label="Ваш ответ">${esc(v||"")}</textarea>`;
+ const opts=q.other?[...q.opts,"Другое"]:q.opts,m=q.type==="multi",sel=m?(v||[]):[v];
+ return opts.map(o=>`<button class="opt${m?"":" r"}${sel.includes(o)?" on":""}" data-o="${esc(o)}" role="${m?"checkbox":"radio"}" aria-checked="${sel.includes(o)}"><b></b>${esc(o)}</button>`).join("")+(q.other&&sel.includes("Другое")?`<input type="text" id="ot" maxlength="150" placeholder="Напишите Ваш вариант" value="${esc(A[q.id+"_o"]||"")}">`:"");
+}
+function show(){
+ if(i<0)return intro();
+ const vs=vis();if(i>=vs.length)return done();
+ const q=vs[i],last=i===vs.length-1;
+ pg.style.width=((i+1)/vs.length*100)+"%";
+ app.innerHTML=`<div class="meta">Вопрос ${i+1} из ${vs.length}</div><div class="blk">${q.blk}</div><h2>${q.t}</h2>${q.hint?`<div class="hint">${q.hint}</div>`:""}${body(q)}
+ <div class="nav"><button class="back" data-back>Назад</button><button class="next" data-next>${has(A[q.id])?(last?"Завершить":"Далее"):(last?"Завершить без ответа":"Пропустить")}</button></div>`;
+ window.scrollTo({top:0});
+}
+function done(){
+ pg.style.width="100%";
+ app.innerHTML=`<div class="big">${HEART}</div><h1>Спасибо, это очень важно для нас</h1>
+ <p>Мы прочитаем каждый ответ. Если Вы указали трудности, они попадут в список доработок сайта.</p>
+ <div class="nav"><button class="back" data-again>Пройти заново</button></div>`;
+}
+app.addEventListener("click",e=>{
+ const b=e.target.closest("button");if(!b)return;
+ const q=vis()[i];
+ if(b.hasAttribute("data-start")){i=0;show()}
+ else if(b.hasAttribute("data-next")){i++;show()}
+ else if(b.hasAttribute("data-back")){i=Math.max(i-1,-1);show()}
+ else if(b.hasAttribute("data-again")){for(const k in A)delete A[k];i=-1;show()}
+ else if(b.hasAttribute("data-na")){A[q.id]=A[q.id]==="na"?undefined:"na";show()}
+ else if(b.dataset.v){A[q.id]=+b.dataset.v;show()}
+ else if(b.dataset.o!==undefined){
+  const o=b.dataset.o;
+  if(q.type==="single")A[q.id]=A[q.id]===o?undefined:o;
+  else{let c=A[q.id]||[];
+   if(c.includes(o))c=c.filter(x=>x!==o);
+   else c=o===NONE?[NONE]:[...c.filter(x=>x!==NONE),o];
+   A[q.id]=c}
+  show();const t=document.getElementById("ot");if(t)t.focus();
+ }
+});
+app.addEventListener("input",e=>{
+ const q=vis()[i];
+ if(e.target.id==="tx")A[q.id]=e.target.value;
+ if(e.target.id==="ot")A[q.id+"_o"]=e.target.value;
+});
+show();
+</script>
+</body>
+</html>
